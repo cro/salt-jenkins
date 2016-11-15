@@ -13,18 +13,18 @@ tests_pubkey_root:
     - names:
       - {{ pillar.get('test_pubkey') }}
 
-debug_sshd_logging_replace:
-  file.replace:
-    - name: /etc/ssh/sshd_config
-    - pattern: 'LogLevel (.*)'
-    - repl: 'LogLevel DEBUG3'
-    - onlyif: grep -Eq '^LogLevel (.*)$' /etc/ssh/sshd_config
-
-debug_sshd_logging_append:
-  file.append:
-    - name: /etc/ssh/sshd_config
-    - text: LogLevel DEBUG3
-    - onlyif: grep -Eq '^#LogLevel (.*)$' /etc/ssh/sshd_config
+#debug_sshd_logging_replace:
+#  file.replace:
+#    - name: /etc/ssh/sshd_config
+#    - pattern: 'LogLevel (.*)'
+#    - repl: 'LogLevel DEBUG3'
+#    - onlyif: grep -Eq '^LogLevel (.*)$' /etc/ssh/sshd_config
+#
+#debug_sshd_logging_append:
+#  file.append:
+#    - name: /etc/ssh/sshd_config
+#    - text: LogLevel DEBUG3
+#    - onlyif: grep -Eq '^#LogLevel (.*)$' /etc/ssh/sshd_config
 
 commend_out_permit_root_login_no:
   file.replace:
